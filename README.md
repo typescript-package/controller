@@ -2,7 +2,7 @@
 <a href="https://www.typescriptlang.org/">
   <img
     src="https://avatars.githubusercontent.com/u/189666396?s=150&u=9d55b1eb4ce258974ead76bf07ccf49ef0eb0ea7&v=4"
-    title="typescript-package/controller - A lightweight TypeScript package for connecting object properties."
+    title="typescript-package/controller - A lightweight TypeScript package with for various kind of controllers."
   />
 </a>
 
@@ -20,6 +20,8 @@ A **lightweight** TypeScript package with for various kind of controllers.
 - [Installation](#installation)
 - [Api](#api)
   - [`PropertyController`](#propertycontroller)
+  - [`PropertyControllerCore`](#propertycontrollercore)
+  - [`PropertyControllerCoreBase`](#propertycontrollerbase)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -34,13 +36,13 @@ A **lightweight** TypeScript package with for various kind of controllers.
 ### 1, Install peer dependencies
 
 ```bash
-npm install @typescript-package/controller --save-peer
+npm install @typedly/callback @typedly/controller @typedly/descriptor --save-peer
 ```
 
 ### 2. Install the package
 
 ```bash
-npm install @typescript-package/property-connect --save-peer
+npm install @typescript-package/controller --save-peer
 ```
 
 ## Api
@@ -48,12 +50,12 @@ npm install @typescript-package/property-connect --save-peer
 ```typescript
 import {
   // Class.
-  PropertyConnect,     // Concrete class to connect the property.
+  PropertyController,     // Concrete class to control behavior of the property.
 
   // Abstract.
-  PropertyConnectBase, // Foundational class for extension.
-  PropertyConnectCore, // The abstraction for base.
-} from '@typescript-package/property-connect';
+  PropertyControllerBase, // Foundational class for extension.
+  PropertyControllerCore, // The abstraction for base.
+} from '@typescript-package/controller';
 ```
 
 ## Contributing
@@ -116,6 +118,10 @@ How do I know when to release 1.0.0?
 ## License
 
 MIT © typescript-package ([license][typescript-package-license])
+
+## Related packages
+
+- [`@xtypescript/property`](https://github.com/xtypescript/property) - A comprehensive, reactive TypeScript library for precise and extensible object property control.
 
 <!-- This package: typescript-package  -->
   <!-- GitHub: badges -->
