@@ -2,7 +2,7 @@
 <a href="https://www.typescriptlang.org/">
   <img
     src="https://avatars.githubusercontent.com/u/189666396?s=150&u=9d55b1eb4ce258974ead76bf07ccf49ef0eb0ea7&v=4"
-    title="typescript-package/controller - A lightweight TypeScript package with for various kind of controllers."
+    title="typescript-package/controller - A lightweight TypeScript package with various kind of controllers for behavior control."
   />
 </a>
 
