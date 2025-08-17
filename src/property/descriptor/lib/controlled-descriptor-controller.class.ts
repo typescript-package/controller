@@ -5,17 +5,17 @@ import { ControlledPropertyDescriptor } from '@typedly/controlled-descriptor';
 // Type.
 import { GetterCallback, SetterCallback } from '@typedly/callback';
 /**
- * @description
+ * @description A controller for controlled property descriptor.
  * @export
  * @class ControlledDescriptorController
- * @template [O=any] 
- * @template {keyof O} [K=keyof O] 
- * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] 
- * @template {boolean} [A=boolean] 
- * @template {boolean} [N=boolean] 
- * @template {boolean} [C=boolean] 
- * @template {boolean} [E=boolean] 
- * @template {ControlledPropertyDescriptor<O, K, V, A, N, C, E, D>} [D=ControlledPropertyDescriptor<O, K, V, A, N, C, E, any>] 
+ * @template [O=any] The object type.
+ * @template {keyof O} [K=keyof O] The key type.
+ * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The type of the value.
+ * @template {boolean} [A=boolean] The type of active.
+ * @template {boolean} [N=boolean] The type of enabled.
+ * @template {boolean} [C=boolean] The type of configurable.
+ * @template {boolean} [E=boolean] The type of enumerable.
+ * @template {ControlledPropertyDescriptor<O, K, V, A, N, C, E, D>} [D=ControlledPropertyDescriptor<O, K, V, A, N, C, E, any>] The type of previous descriptor.
  * @implements {WrappedPropertyDescriptorController<O, K, V, A, N, C, E, D>}
  */
 export class ControlledDescriptorController<
@@ -76,7 +76,6 @@ export class ControlledDescriptorController<
   public get enabled() {
     return this.#enabled;
   }
-
 
   /**
    * @inheritdoc
@@ -205,38 +204,47 @@ export class ControlledDescriptorController<
   /**
    * Creates an instance of `ControlledDescriptorController`.
    * @constructor
-   * @param {O} object The object to control.
+   * @param {O} object The object to control the specified key.
    * @param {K} key The key of the property to control.
-   * @param {Partial<WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>>} descriptor The property descriptor.
+   * @param {?Partial<WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>>} [descriptor] The property descriptor.
    */
   constructor(
     object: O,
     key: K,
-    descriptor: Partial<WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>>,
+    descriptor?: Partial<WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>>,
   ) {
-    this.#active = typeof descriptor.active === 'boolean' || typeof descriptor.active === 'object' ? descriptor.active : ControlledDescriptorController.active as A;
-    this.#enabled = typeof descriptor.enabled === 'boolean' || typeof descriptor.enabled === 'object' ? descriptor.enabled : ControlledDescriptorController.enabled as N;
-    this.#get = descriptor.get!;
-    this.#index = descriptor.index;
+    this.#active = typeof descriptor?.active === 'boolean' || typeof descriptor?.active === 'object' ? descriptor?.active : ControlledDescriptorController.active as A;
+    this.#enabled = typeof descriptor?.enabled === 'boolean' || typeof descriptor?.enabled === 'object' ? descriptor?.enabled : ControlledDescriptorController.enabled as N;
+    this.#get = descriptor?.get!;
+    this.#index = descriptor?.index;
     this.#key = key;
-    this.#previousDescriptor = (descriptor.previousDescriptor || Object.getOwnPropertyDescriptor(object, key)) as D;
-    this.#privateKey = descriptor.privateKey || `_${String(key)}`;
-    this.#set = descriptor.set!;
-    this.#onGet = descriptor.onGet;
-    this.#onSet = descriptor.onSet;
+    this.#previousDescriptor = (descriptor?.previousDescriptor || Object.getOwnPropertyDescriptor(object, key)) as D;
+    this.#privateKey = descriptor?.privateKey || `_${String(key)}`;
+    this.#set = descriptor?.set!;
+    this.#onGet = descriptor?.onGet;
+    this.#onSet = descriptor?.onSet;
   }
 
   //#region Instance methods
+  /**
+   * @inheritdoc
+   */
   public activate(callback: 'both' | 'onGet' | 'onSet' = 'both'): this {
     this.#setActive(callback, true as A);
     return this;
   }
 
+  /**
+   * @inheritdoc
+   */
   public deactivate(callback: 'both' | 'onGet' | 'onSet' = 'both'): this {
     this.#setActive(callback, false as A);
     return this;
   }
 
+  /**
+   * @inheritdoc
+   */
   public disable(): this {
     // Disable the descriptor by setting enabled to false.
     // This will prevent the descriptor from being used.
@@ -245,16 +253,16 @@ export class ControlledDescriptorController<
     return this;
   }
 
+  /**
+   * @inheritdoc
+   */
   public enable(): this {
     this.#enabled = true as N;
     return this;
   }
 
   /**
-   * @description Checks whether the descriptor callback `onGet` or `onSet` is active or 'both' are active.
-   * @public
-   * @param {('both' | 'onGet' | 'onSet')} callback 
-   * @returns {boolean} 
+   * @inheritdoc 
    */
   public isActive(callback: 'both' | 'onGet' | 'onSet'): boolean {
     switch(callback) {
@@ -271,6 +279,11 @@ export class ControlledDescriptorController<
   }
   //#endregion
 
+  /**
+   * @description Sets the active state of the descriptor.
+   * @param {('both' | 'onGet' | 'onSet')} callback 
+   * @param {A} active 
+   */
   #setActive(callback: 'both' | 'onGet' | 'onSet', active: A) {
     if (typeof this.#active === 'object' && ('onGet' === callback || 'onSet' === callback)) {
       this.#active[callback] = active;
