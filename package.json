@@ -1,6 +1,6 @@
 {
   "name": "@typescript-package/controller",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "wwwdev.io <dev@wwwdev.io>",
   "description": "A lightweight TypeScript package with various kind of controllers for behavior control.",
   "license": "MIT",
@@ -10,9 +10,9 @@
   },
   "peerDependencies": {
     "@typedly/callback": "^1.0.0",
-    "@typedly/controlled-descriptor": "^0.0.1",
-    "@typedly/controller": "^0.2.0",
-    "@typedly/descriptor": "^10.0.0"
+    "@typedly/controlled-descriptor": "^0.1.0",
+    "@typedly/controller": "^0.3.0",
+    "@typedly/descriptor": "^10.1.1"
   },
   "scripts": {
     "prepublishOnly": "npm run pkg && npm run clean",

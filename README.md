@@ -2,7 +2,7 @@
 <a href="https://www.typescriptlang.org/">
   <img
     src="https://avatars.githubusercontent.com/u/189666396?s=150&u=9d55b1eb4ce258974ead76bf07ccf49ef0eb0ea7&v=4"
-    title="typescript-package/controller - A lightweight TypeScript package with for various kind of controllers."
+    title="typescript-package/controller - A lightweight TypeScript package with various kind of controllers for behavior control."
   />
 </a>
 
@@ -127,7 +127,15 @@ MIT © typescript-package ([license][typescript-package-license])
 
 ## Related packages
 
-- [`@xtypescript/property`](https://github.com/xtypescript/property) - A comprehensive, reactive TypeScript library for precise and extensible object property control.
+- **[@typescript-package/chain-descriptor](https://github.com/typescript-package/chain-descriptor)**: A **TypeScript** library for chain property descriptor.
+- **[@typescript-package/controller](https://github.com/typescript-package/controller)**: A **TypeScript** package with for various kind of controllers.
+- **[@typescript-package/descriptor](https://github.com/typescript-package/descriptor)**: A **TypeScript** library for property descriptor.
+- **[@typescript-package/descriptor-chain](https://github.com/typescript-package/descriptor-chain)**: A **TypeScript** library for property descriptor chain.
+- **[@typescript-package/descriptors](https://github.com/typescript-package/descriptors)**: A **TypeScript** library for property descriptors.
+- **[@typescript-package/property](https://github.com/typescript-package/property)**: A **TypeScript** package with features to handle object properties.
+- **[@typescript-package/wrap-descriptor](https://github.com/typescript-package/wrap-descriptor)**: A **TypeScript** package for wrapping object descriptors.
+- **[@typescript-package/wrap-property](https://github.com/typescript-package/wrap-property)**: A **TypeScript** package for wrapping object properties.
+- **[@xtypescript/property](https://github.com/xtypescript/property)** - A comprehensive, reactive **TypeScript** library for precise and extensible object property control.
 
 <!-- This package: typescript-package  -->
   <!-- GitHub: badges -->
@@ -145,7 +153,8 @@ MIT © typescript-package ([license][typescript-package-license])
 <!-- Package: typescript-package -->
   <!-- npm -->
   [typescript-package-npm-badge-svg]: https://badge.fury.io/js/@typescript-package%2Fcontroller.svg
-  [typescript-package-npm-badge]: https://badge.fury.io/js/@typescript-package%controller
+  [typescript-package-npm-badge]: https://badge.fury.io/js/@typescript-package%2Fcontroller
+
 
 <!-- GIT -->
 [git-semver]: http://semver.org/
