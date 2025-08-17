@@ -144,7 +144,7 @@ MIT © typescript-package ([license][typescript-package-license])
 
 <!-- Package: typescript-package -->
   <!-- npm -->
-  [typescript-package-npm-badge-svg]: https://badge.fury.io/js/@typescript-package%2Fcontroller.svg
+  [typescript-package-npm-badge-svg]: https://badge.fury.io/js/@typescript-package%controller.svg
   [typescript-package-npm-badge]: https://badge.fury.io/js/@typescript-package%controller
 
 <!-- GIT -->
