@@ -1,6 +1,6 @@
 {
   "name": "@typescript-package/controller",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "wwwdev.io <dev@wwwdev.io>",
   "description": "A lightweight TypeScript package with various kind of controllers for behavior control.",
   "license": "MIT",
