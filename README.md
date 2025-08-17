@@ -13,15 +13,14 @@
 [![GitHub issues][typescript-package-badge-issues]][typescript-package-issues]
 [![GitHub license][typescript-package-badge-license]][typescript-package-license]
 
-A **lightweight** TypeScript package with for various kind of controllers.
+A **lightweight** TypeScript package with various kind of controllers for behavior control.
 
 ## Table of contents
 
 - [Installation](#installation)
 - [Api](#api)
-  - [`PropertyController`](#propertycontroller)
-  - [`PropertyControllerCore`](#propertycontrollercore)
-  - [`PropertyControllerCoreBase`](#propertycontrollerbase)
+  - Descriptor
+    - [`ControlledDescriptorController`](#controlleddescriptorcontroller)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -36,7 +35,11 @@ A **lightweight** TypeScript package with for various kind of controllers.
 ### 1, Install peer dependencies
 
 ```bash
-npm install @typedly/callback @typedly/controller @typedly/descriptor --save-peer
+npm install
+  @typedly/callback
+  @typedly/controlled-descriptor
+  @typedly/controller
+  @typedly/descriptor --save-peer
 ```
 
 ### 2. Install the package
@@ -49,13 +52,16 @@ npm install @typescript-package/controller --save-peer
 
 ```typescript
 import {
-  // Class.
-  PropertyController,     // Concrete class to control behavior of the property.
-
-  // Abstract.
-  PropertyControllerBase, // Foundational class for extension.
-  PropertyControllerCore, // The abstraction for base.
+  ControlledDescriptorController
 } from '@typescript-package/controller';
+```
+
+## Descriptor
+
+### `ControlledDescriptorController`
+
+```typescript
+import { ControlledDescriptorController } from '@typescript-package/controller';
 ```
 
 ## Contributing
