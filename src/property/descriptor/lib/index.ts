@@ -1,0 +1,1 @@
+export { ControlledDescriptorController } from './controlled-descriptor-controller.class';
