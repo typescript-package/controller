@@ -1,7 +1,7 @@
 // Interface.
+import { ControlledPropertyDescriptor } from '@typedly/controlled-descriptor';
 import { WrappedPropertyDescriptor } from '@typedly/descriptor';
 import { WrappedPropertyDescriptorController } from '@typedly/controller';
-import { ControlledPropertyDescriptor } from '@typedly/controlled-descriptor';
 // Type.
 import { GetterCallback, SetterCallback } from '@typedly/callback';
 /**
@@ -213,8 +213,10 @@ export class ControlledDescriptorController<
     key: K,
     descriptor?: Partial<WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>>,
   ) {
-    this.#active = typeof descriptor?.active === 'boolean' || typeof descriptor?.active === 'object' ? descriptor?.active : ControlledDescriptorController.active as A;
-    this.#enabled = typeof descriptor?.enabled === 'boolean' || typeof descriptor?.enabled === 'object' ? descriptor?.enabled : ControlledDescriptorController.enabled as N;
+    this.#active = typeof descriptor?.active === 'boolean' || typeof descriptor?.active === 'object'
+      ? descriptor?.active : ControlledDescriptorController.active as A;
+    this.#enabled = typeof descriptor?.enabled === 'boolean' || typeof descriptor?.enabled === 'object'
+      ? descriptor?.enabled : ControlledDescriptorController.enabled as N;
     this.#get = descriptor?.get!;
     this.#index = descriptor?.index;
     this.#key = key;
@@ -262,7 +264,7 @@ export class ControlledDescriptorController<
   }
 
   /**
-   * @inheritdoc 
+   * @inheritdoc
    */
   public isActive(callback: 'both' | 'onGet' | 'onSet'): boolean {
     switch(callback) {
@@ -285,7 +287,7 @@ export class ControlledDescriptorController<
    * @param {A} active 
    */
   #setActive(callback: 'both' | 'onGet' | 'onSet', active: A) {
-    if (typeof this.#active === 'object' && ('onGet' === callback || 'onSet' === callback)) {
+    if (typeof this.#active === 'object' && (callback === 'onGet' || callback === 'onSet')) {
       this.#active[callback] = active;
     } else {
       this.#active = active as A;
